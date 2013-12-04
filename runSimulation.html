@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Summary Page</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link type="text/css" rel="stylesheet" href="stylesheets/style.css" />
+  <link href="src/nv.d3.css" rel="stylesheet" type="text/css">
+  
+</head>
+
+<body>
+
+<div id="logo">
+	<img src="images/small-logo.jpg" alt="Infinite Solutions" width="128" height="90" align="right" /> 
+</div>
+
+<div id="wrap">
+
+<div id = "navigation">
+    
+	<ul>
+      <li><a class="title" title="Home/Summary" href="Summary.html">Home/Summary</a></li>
+      <li><a class="active" title="Job Directory" href="JobDirectory.html">Job Directory</a></li>
+      <li><a class="title" title="Staff Directory" href="StaffDirectory.html">Staff Directory</a></li>
+      <li><a class="title" title="MyProfile" href="MyProfile.html">MyProfile</a></li>
+      <li><a class="title" title="Logout" href="Logout.html">Logout</a></li>
+    </ul>
+</div> 
+
+<div id="gap">
+</div>
+
+<div id="content">
+
+
+
+
+<div id="offsetDiv">
+  <div id="test1" class='with-3d-shadow with-transitions'>
+    <svg></svg>
+  </div>
+</div>
+
+<script src="lib/d3.v3.js"></script>
+<!--<script src="../lib/fisheye.js"></script>-->
+<script src="nv.d3.js"></script>
+<script src="src/tooltip.js"></script>
+<script src="src/utils.js"></script>
+<script src="src/models/legend.js"></script>
+<script src="src/models/axis.js"></script>
+<script src="src/models/distribution.js"></script>
+<script src="src/models/scatter.js"></script>
+<script src="src/models/scatterChart.js"></script>
+<script>
+
+
+
+//Format A
+var chart;
+nv.addGraph(function() {
+  chart = nv.models.scatterChart()
+                .showDistX(true)
+                .showDistY(true)
+                .useVoronoi(true)
+                .color(d3.scale.category10().range())
+                .transitionDuration(300)
+                ;
+
+  chart.xAxis.tickFormat(d3.format('.02f'));
+  chart.yAxis.tickFormat(d3.format('.02f'));
+  chart.tooltipContent(function(key) {
+      return '<h2>' + key + '</h2>';
+  });
+
+  d3.select('#test1 svg')
+      .datum(randomData(4,40))
+      .call(chart);
+
+  nv.utils.windowResize(chart.update);
+
+  chart.dispatch.on('stateChange', function(e) { ('New State:', JSON.stringify(e)); });
+
+  return chart;
+});
+
+
+function randomData(groups, points) { //# groups,# points per group
+  var data = [],
+      shapes = ['circle', 'cross', 'triangle-up', 'triangle-down', 'diamond', 'square'],
+      random = d3.random.normal();
+
+  for (i = 0; i < groups; i++) {
+    data.push({
+      key: 'Group ' + i,
+      values: []
+    });
+
+    for (j = 0; j < points; j++) {
+      data[i].values.push({
+        x: random(), 
+        y: random(), 
+        size: Math.random(), 
+        shape: shapes[j % 6]
+      });
+    }
+  }
+
+  return data;
+}
+
+
+
+</script>
+
+
+
+</div>
+
+
+</div>
+
+</body>
+</html>

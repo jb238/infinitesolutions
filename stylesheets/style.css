@@ -1,0 +1,165 @@
+body {
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    background-color:white; 
+}
+
+h1 {
+    border-bottom: 1px solid black;
+}
+
+#logo {
+	padding-right: 120px;
+
+}
+
+#wrap {
+	margin: 0 auto;
+	width: 1024px;
+	padding-top: 20px;
+	}
+
+#navigation {
+	margin: 0;
+	padding-top: 10px;
+	outline:solid #000000;
+	border-bottom: 1px solid black;
+	/*width: 1004px;*/
+	width:800px;
+	list-style-type: none;
+}
+
+#navigation li {
+	display: inline;
+	padding-left:30px;
+}
+
+#navigation li a {
+	text-decoration: none;
+	padding: 10px;
+	color: #777;
+
+}
+
+#navigation li a.active, #navigation li a:hover {
+	background: #eee;
+	border-top: 2px solid #ddd
+	color: #333;
+
+}
+
+#gap {
+	height:20px;
+	width:1024px;
+	clear:both;
+
+}
+
+#top-content {
+	border-top: medium #000000 solid;
+	padding-top: 20px;
+}
+
+#profile {
+	float:left;
+	height:200px;
+	width:500px;
+	list-style-type:none;
+
+}
+
+#profile-text {
+	text-indent: 20px;
+	padding-top: 20px;
+}
+
+#notificationCentre {
+	float:right;
+	height:200px;
+	width:500px;
+	
+	border: medium #000000 solid;
+
+}
+
+#job-table {
+	height:400px;
+	width:1024px;
+	
+	border: medium #000000 solid;
+	
+	text-align:center;
+
+}
+
+svg {
+  overflow: hidden;
+}
+
+#offsetDiv {
+  margin-top: 100px;
+}
+
+
+#test1 {
+  margin: 0;
+}
+
+#test1 svg {
+  height: 500px;
+}
+
+#profile-info {
+	height:200px;
+	width:750px;
+	
+	float:right;
+	
+	border: medium #000000 solid;
+	
+	text-align:left;
+	
+	text-indent: 20px;
+	padding-top: 20px;
+	list-style-type:none;
+}
+
+#profile-bio {
+	height:200px;
+	width:750px;
+	
+	float:right;
+	
+	border: medium #000000 solid;
+	
+	text-align:left;
+	
+	text-indent: 20px;
+	padding-top: 20px;
+	list-style-type:none;
+
+}
+
+#profile-photo {
+	float:left;
+	padding-left:15px;
+	height:200px;
+	width:200px;
+	
+	border: medium #000000 solid;
+
+}
+
+#viewJob-table {
+	height:80px;
+	width:1024px;
+	
+	border: medium #000000 solid;
+	
+	text-align:center;
+
+}
+
+#parameterSelection {
+
+}
